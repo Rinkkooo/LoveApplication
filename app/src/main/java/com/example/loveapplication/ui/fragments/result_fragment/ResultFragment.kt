@@ -36,7 +36,7 @@ class LoveResultFragment : Fragment() {
         }
 
         binding.btnTryAgain.setOnClickListener {
-            findNavController().navigate(LoveResultFragmentDirections.actionResultFragmentToCalculateFragment())
+            findNavController().navigateUp()
         }
     }
 

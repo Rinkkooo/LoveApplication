@@ -29,7 +29,7 @@ class HistoryAdapter(private val onLongClickItem: OnClick) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
         holder.itemView.setOnLongClickListener {
-            onLongClickItem.onLongClick(getItem(position))
+            onLongClickItem.onLongClick(holder.itemView.context, getItem(position))
             true
         }
     }

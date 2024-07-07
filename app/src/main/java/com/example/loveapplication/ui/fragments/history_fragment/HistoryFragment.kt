@@ -1,6 +1,7 @@
 package com.example.loveapplication.ui.fragments.history_fragment
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +39,7 @@ class HistoryFragment : Fragment(), OnClick {
         })
     }
 
-    override fun onLongClick(historyEntity: HistoryEntity) {
+    override fun onLongClick(context: Context, historyEntity: HistoryEntity) {
         val builder = AlertDialog.Builder(requireContext())
         with(builder) {
             setTitle("Do you want to delete it?")

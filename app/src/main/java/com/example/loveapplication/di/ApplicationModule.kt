@@ -51,7 +51,7 @@ object ApplicationModule {
     @Singleton
     fun provideOnClick(@ApplicationContext context: Context, historyDao: HistoryDao): OnClick {
         return object : OnClick {
-            override fun onLongClick(historyEntity: HistoryEntity) {
+            override fun onLongClick(context: Context, historyEntity: HistoryEntity) {
                 val builder = AlertDialog.Builder(context)
                 with(builder) {
                     setTitle("Do you want to delete it?")

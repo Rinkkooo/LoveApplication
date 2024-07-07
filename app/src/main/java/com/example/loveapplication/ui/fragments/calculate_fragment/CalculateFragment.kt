@@ -66,14 +66,19 @@ class LoveCalcFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
             }
         }
-    }
-    private fun navigateToResultFragment(loveResult: LoveResult) {
-        val bundle = Bundle().apply {
-            putString("firstName", loveResult.firstName)
-            putString("secondName", loveResult.secondName)
-            putString("percentage", loveResult.percentage)
-            putString("result", loveResult.result)
+
+        binding.btnHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_calculateFragment_to_historyFragment)
         }
-        findNavController().navigate(R.id.action_calculateFragment_to_resultFragment, bundle)
+    }
+
+    private fun navigateToResultFragment(loveResult: LoveResult) {
+        val action = LoveCalcFragmentDirections.actionCalculateFragmentToResultFragment(
+            loveResult.firstName,
+            loveResult.secondName,
+            loveResult.percentage,
+            loveResult.result
+        )
+        findNavController().navigate(action)
     }
 }
