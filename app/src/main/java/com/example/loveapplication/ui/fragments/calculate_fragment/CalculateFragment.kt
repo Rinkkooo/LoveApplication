@@ -69,6 +69,8 @@ class LoveCalcFragment : Fragment() {
     }
     private fun navigateToResultFragment(loveResult: LoveResult) {
         val bundle = Bundle().apply {
+            putString("firstName", loveResult.firstName)
+            putString("secondName", loveResult.secondName)
             putString("percentage", loveResult.percentage)
             putString("result", loveResult.result)
         }

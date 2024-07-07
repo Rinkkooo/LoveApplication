@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/calculateFragment">
+    app:startDestination="@id/onboardFragment">
 
 
     <fragment
@@ -52,5 +52,17 @@
             android:id="@+id/action_historyFragment_to_calculateFragment"
             app:destination="@id/calculateFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/onboardFragment"
+        android:name="com.example.loveapplication.ui.fragments.onboard_fragment.OnboardFragment"
+        android:label="OnboardFragment" >
+        <action
+            android:id="@+id/action_onboardFragment_to_calculateFragment"
+            app:destination="@id/calculateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardViewPagerFragment"
+        android:name="com.example.loveapplication.ui.fragments.onboard_fragment.OnboardViewPagerFragment"
+        android:label="OnboardViewPagerFragment" />
 
 </navigation>

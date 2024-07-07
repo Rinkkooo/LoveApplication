@@ -2,10 +2,12 @@ package com.example.loveapplication.di
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.loveapplication.data.local.AppDatabase
 import com.example.loveapplication.data.local.HistoryDao
 import com.example.loveapplication.data.local.HistoryEntity
+import com.example.loveapplication.data.local.SharedPreferencesHelper
 import com.example.loveapplication.data.network.ApiService
 import com.example.loveapplication.interfaces.OnClick
 import com.example.loveapplication.ui.fragments.history_fragment.HistoryAdapter
@@ -69,5 +71,17 @@ object ApplicationModule {
     @Provides
     fun provideHistoryAdapter(onClick: OnClick): HistoryAdapter {
         return HistoryAdapter(onClick)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("Preferences", Context.MODE_PRIVATE)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferencesHelper(sharedPreferences: SharedPreferences): SharedPreferencesHelper{
+        return SharedPreferencesHelper(sharedPreferences)
     }
 }
